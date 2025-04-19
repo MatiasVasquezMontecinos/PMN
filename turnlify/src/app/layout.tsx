@@ -1,3 +1,8 @@
+import { Header } from 'app/components/shared/Header';
+import 'app/sass/globals.sass'
+
+
+
 
 export default function RootLayout({
   children,
@@ -7,6 +12,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <Header/>
         {children}
       </body>
     </html>
