@@ -1,5 +1,25 @@
+import { Grafico } from 'app/components/Home/Grafico'
+import { HorasExtras } from 'app/components/Home/HorasExtras'
+import { Solicitudes } from 'app/components/Home/Solicitudes'
+import { Calendario } from 'app/components/Home/Calendario'
+import styles from './home.module.sass'
+
+
+
+
 export default function Home(){
     return (
-        <h1>Home</h1>
+        <div className={styles.homemain}>
+            <div>
+                <Grafico/>
+                <HorasExtras/>
+            </div>
+            <div>
+                <Calendario/>
+            </div>
+            <div>
+                <Solicitudes/>
+            </div>
+        </div>
     )
 }

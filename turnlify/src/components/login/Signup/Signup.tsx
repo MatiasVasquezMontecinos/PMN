@@ -1,18 +1,28 @@
+'use client'
+
+import { useRouter } from 'next/navigation'
 import styles from './Signup.module.sass'
 
 export const SignUp = () => {
+    const router = useRouter()
+
+    const handleSignUp = (e: any) => {
+        e.preventDefault()
+        router.push('/home')
+    }
+
     return (
         <div className={styles.SignUp_1div}>
             <div className={styles.SignUp_11div}>
-                <h2>Incio de Sesion</h2>
-                <form action="#">
-                    <input type="text" placeholder="Ingrese su email" />
-                    <input type="text" placeholder="Ingrese su contraseña"/>
-                    <button type="submit">Inciar Sesion</button>
+                <h2>Inicio de Sesión</h2>
+                <form onSubmit={handleSignUp}>
+                    <input type="email" placeholder="Ingrese su email" />
+                    <input type="password" placeholder="Ingrese su contraseña" />
+                    <button type="submit">Iniciar Sesión</button>
                 </form>
             </div>
             <div className={styles.SignUp_12div}>
-                <h5>¿Ha perdido su contraseña?, Recuperela</h5>
+                <h5>¿Ha perdido su contraseña? Recupérala</h5>
             </div>
         </div>
     )

@@ -1,0 +1,58 @@
+.calendario
+  background-color: #d3d3d3
+  padding: 1rem
+  border-radius: 1rem
+  width: fit-content
+  font-family: sans-serif
+  h2
+    text-align: center
+    font-size: 2rem
+    margin-bottom: 1rem
+
+.diasSemana
+  display: grid
+  grid-template-columns: repeat(7, 1fr)
+  margin-bottom: 0.5rem
+
+.diaSemana
+  text-align: center
+  font-weight: bold
+
+.grid
+  display: grid
+  grid-template-columns: repeat(7, 1fr)
+  gap: 0.5rem
+
+.celda
+  background-color: #e5e5e5
+  border-radius: 0.5rem
+  padding: 0.2rem
+  aspect-ratio: 1 / 1
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: space-between
+  font-size: 0.9rem
+  position: relative
+
+.estado
+  width: 80%
+  height: 50%
+  border-radius: 0.5rem
+
+
+.disponible .estado
+  background-color: #b4e197
+
+.ocupado .estado
+  background-color: #9eb3bd
+
+.solicitud .estado
+  background-color: #f27d7d
+
+.vacio
+  background-color: transparent
+
+.seleccionado
+  outline: 2px solid #3498db
+  outline-offset: 2px
