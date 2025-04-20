@@ -5,20 +5,20 @@ import { Calendario } from 'app/components/Home/Calendario'
 import styles from './home.module.sass'
 
 
-
-
-export default function Home(){
+export default function Home() {
     return (
         <div className={styles.homemain}>
-            <div>
-                <Grafico/>
-                <HorasExtras/>
+            <div className={styles.Tiempo_grafico}>
+                <div>
+                    <Grafico />
+                </div>
+                <HorasExtras />
             </div>
-            <div>
-                <Calendario/>
+            <div className={styles.calendario_container}>
+                <Calendario />
             </div>
-            <div>
-                <Solicitudes/>
+            <div className={styles.solicitudes_container}>
+                <Solicitudes />
             </div>
         </div>
     )
