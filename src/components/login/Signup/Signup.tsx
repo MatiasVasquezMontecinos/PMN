@@ -6,7 +6,7 @@ import styles from './Signup.module.sass'
 export const SignUp = () => {
     const router = useRouter()
 
-    const handleSignUp = (e: any) => {
+    const handleSignUp = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         router.push('/home')
     }
