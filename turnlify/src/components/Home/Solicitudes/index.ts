@@ -1,1 +1,0 @@
-export { Solicitudes } from './Solicitudes'
