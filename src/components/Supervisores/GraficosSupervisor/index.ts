@@ -1,0 +1,1 @@
+export { GraficosSupervisor } from './GraficosSupervisor'

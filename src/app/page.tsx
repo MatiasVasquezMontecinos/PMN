@@ -1,10 +1,10 @@
-import { SignUp } from "app/components/login/Signup"
-import styles from "./login.module.sass"
+import { Hero } from "app/components/Home/Hero";
 
-export default function Login() {
+
+export default function HomePage() {
     return (
-        <div className={styles.LoginMain}>
-            <SignUp/>
+        <div>
+            <Hero/>
         </div>
-    )
+    );
 }

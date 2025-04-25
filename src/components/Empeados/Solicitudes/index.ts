@@ -1,0 +1,1 @@
+export { Solicitudes } from './Solicitudes';

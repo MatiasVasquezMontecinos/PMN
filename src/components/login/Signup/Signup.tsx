@@ -1,15 +1,15 @@
-'use client'
+'use client';
 
-import { useRouter } from 'next/navigation'
-import styles from './Signup.module.sass'
+import { useRouter } from 'next/navigation';
+import styles from './Signup.module.sass';
 
 export const SignUp = () => {
-    const router = useRouter()
+    const router = useRouter();
 
     const handleSignUp = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault()
-        router.push('/home')
-    }
+        e.preventDefault();
+        router.push('/home');
+    };
 
     return (
         <div className={styles.SignUp_1div}>
@@ -25,5 +25,5 @@ export const SignUp = () => {
                 <h5>¿Ha perdido su contraseña? Recupérala</h5>
             </div>
         </div>
-    )
-}
+    );
+};

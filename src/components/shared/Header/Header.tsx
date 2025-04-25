@@ -1,11 +1,25 @@
+import Link from 'next/link'
 import styles from './Header.module.sass'
 
 export const Header = () => {
     return (
-        <div className={styles.Header_1div}>
-            <div className={styles.Header_2div}>
-                <h3>Turnlify</h3>
-            </div>
-        </div>
+        <header>
+            <nav>
+                <ul className={styles.Header__list}>
+                    <li>
+                        <Link href="/">Home</Link>
+                    </li>
+                    <li>
+                        <Link href="/about us">Quienes somos</Link>
+                    </li>
+                    <li>
+                        <button>Inciar sesion</button>
+                    </li>
+                    <li>
+                        <button>Registrarse</button>
+                    </li>
+                </ul>
+            </nav>
+        </header>
     )
 }

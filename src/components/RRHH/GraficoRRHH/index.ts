@@ -1,0 +1,1 @@
+export { GraficoRRHH } from './GraficoRRHH'

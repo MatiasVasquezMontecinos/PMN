@@ -1,0 +1,1 @@
+export { ListaQuejas } from './ListaQuejas'
