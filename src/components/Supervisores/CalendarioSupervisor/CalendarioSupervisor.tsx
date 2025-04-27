@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation"; 
-import { format, getMonth, getYear, addMonths, subMonths, startOfMonth, getDay, getDaysInMonth } from "date-fns";
+import { format, addMonths, subMonths, startOfMonth, getDay, getDaysInMonth } from "date-fns";
 import { es } from "date-fns/locale";
 
 import styles from './CalendarioSupervisor.module.sass';
@@ -11,28 +11,19 @@ export const CalendarioSupervisor = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const router = useRouter();
 
-  const year = getYear(currentDate);
-  const month = getMonth(currentDate);
-
   const startDate = startOfMonth(currentDate);
   let startDay = getDay(startDate);
-
   startDay = startDay === 0 ? 6 : startDay - 1;
 
   const daysInMonth = getDaysInMonth(currentDate);
 
-  const daysArray = [];
+  const daysArray = [
+    ...Array(startDay).fill(null),
+    ...Array.from({ length: daysInMonth }, (_, i) => i + 1)
+  ];
 
-  for (let i = 0; i < startDay; i++) {
-    daysArray.push(null);
-  }
-
-  for (let i = 1; i <= daysInMonth; i++) {
-    daysArray.push(i);
-  }
-
-  const handleVerLista = () => {
-    router.push("/lista");
+  const handleVerLista = (day: number) => {
+    router.push(`/lista?dia=${day}`); // pasa el día como parámetro en la URL
   };
 
   return (
@@ -61,13 +52,13 @@ export const CalendarioSupervisor = () => {
                 <span>{day}</span>
                 <button 
                   className={styles.Calendario__verListaBtn}
-                  onClick={handleVerLista}
+                  onClick={() => handleVerLista(day)}
                 >
                   Ver lista
                 </button>
               </>
             ) : (
-              ""
+              <span></span> // para mantener la cuadrícula alineada
             )}
           </div>
         ))}

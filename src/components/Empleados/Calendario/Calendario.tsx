@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { format, getMonth, getYear, addMonths, subMonths, startOfMonth, getDay, getDaysInMonth } from "date-fns";
+import { format, addMonths, subMonths, startOfMonth, getDay, getDaysInMonth } from "date-fns";
 import { es } from "date-fns/locale";
 
 import styles from './Calendario.module.sass';
@@ -9,28 +9,19 @@ import styles from './Calendario.module.sass';
 export const Calendario = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
 
-  const year = getYear(currentDate);
-  const month = getMonth(currentDate);
-
   const startDate = startOfMonth(currentDate);
   let startDay = getDay(startDate);
-
   startDay = startDay === 0 ? 6 : startDay - 1;
 
   const daysInMonth = getDaysInMonth(currentDate);
 
-  const daysArray = [];
-
-  for (let i = 0; i < startDay; i++) {
-    daysArray.push(null);
-  }
-
-  for (let i = 1; i <= daysInMonth; i++) {
-    daysArray.push(i);
-  }
+  const daysArray = [
+    ...Array(startDay).fill(null),
+    ...Array.from({ length: daysInMonth }, (_, i) => i + 1)
+  ];
 
   const handleMarcarAsistencia = (day: number) => {
-    alert("Se ha marcado su llegada");
+    alert(`Se ha marcado su llegada el día ${day}`);
   };
 
   return (
@@ -39,7 +30,9 @@ export const Calendario = () => {
         <button onClick={() => setCurrentDate(subMonths(currentDate, 1))}>
           Anterior
         </button>
+
         <span>{format(currentDate, "MMMM yyyy", { locale: es })}</span>
+
         <button onClick={() => setCurrentDate(addMonths(currentDate, 1))}>
           Siguiente
         </button>
@@ -57,7 +50,7 @@ export const Calendario = () => {
             {day ? (
               <>
                 <span>{day}</span>
-                <button 
+                <button
                   className={styles.Calendario__marcarAsistenciaBtn}
                   onClick={() => handleMarcarAsistencia(day)}
                 >
@@ -65,7 +58,7 @@ export const Calendario = () => {
                 </button>
               </>
             ) : (
-              ""
+              <span></span> // espacio vacío para días de la semana anteriores
             )}
           </div>
         ))}
