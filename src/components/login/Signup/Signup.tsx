@@ -10,7 +10,7 @@ export const SignUp = () => {
 
     const handleSignUp = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        
+
         if (userType === 'Empleado') {
             router.push('/homeEmpleado');
         } else if (userType === 'Supervisor') {
@@ -24,8 +24,8 @@ export const SignUp = () => {
         <section className={styles.SignUp__box}>
             <h2>Inicio de Sesión</h2>
             <form onSubmit={handleSignUp}>
-                <input type="email" placeholder="Ingrese su email" />
-                <input type="password" placeholder="Ingrese su contraseña" />
+                <input type="email" placeholder="Ingrese su email" required />
+                <input type="password" placeholder="Ingrese su contraseña" required />
                 <select value={userType} onChange={(e) => setUserType(e.target.value)}>
                     <option value="Empleado">Empleado</option>
                     <option value="Supervisor">Supervisor</option>
@@ -33,7 +33,7 @@ export const SignUp = () => {
                 </select>
                 <button type="submit">Iniciar Sesión</button>
             </form>
-            <div className={styles.SignUp_12div}>
+            <div className={styles.SignUp__div}>
                 <h5>¿Ha perdido su contraseña? Recupérala</h5>
             </div>
         </section>
