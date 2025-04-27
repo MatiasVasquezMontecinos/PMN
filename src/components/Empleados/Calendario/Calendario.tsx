@@ -1,15 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation"; 
 import { format, getMonth, getYear, addMonths, subMonths, startOfMonth, getDay, getDaysInMonth } from "date-fns";
 import { es } from "date-fns/locale";
 
-import styles from './CalendarioSupervisor.module.sass';
+import styles from './Calendario.module.sass';
 
-export const CalendarioSupervisor = () => {
+export const Calendario = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
-  const router = useRouter();
 
   const year = getYear(currentDate);
   const month = getMonth(currentDate);
@@ -31,8 +29,8 @@ export const CalendarioSupervisor = () => {
     daysArray.push(i);
   }
 
-  const handleVerLista = () => {
-    router.push("/lista");
+  const handleMarcarAsistencia = (day: number) => {
+    alert("Se ha marcado su llegada");
   };
 
   return (
@@ -60,10 +58,10 @@ export const CalendarioSupervisor = () => {
               <>
                 <span>{day}</span>
                 <button 
-                  className={styles.Calendario__verListaBtn}
-                  onClick={handleVerLista}
+                  className={styles.Calendario__marcarAsistenciaBtn}
+                  onClick={() => handleMarcarAsistencia(day)}
                 >
-                  Ver lista
+                  Marcar asistencia
                 </button>
               </>
             ) : (

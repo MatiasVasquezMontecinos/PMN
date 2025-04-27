@@ -1,1 +1,0 @@
-export { Quejas } from './Quejas'

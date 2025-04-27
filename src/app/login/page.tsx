@@ -1,10 +1,8 @@
 import { SignUp } from "app/components/Login/SignUp/Signup"
-import styles from "./login.module.sass"
+
 
 export default function Login() {
     return (
-        <div className={styles.LoginMain}>
-            <SignUp/>
-        </div>
+        <SignUp/>
     );
 };

@@ -1,6 +1,9 @@
+'use client'
+
+import { MainHeader } from 'app/components/shared/Header/MainHeader';
 import 'app/sass/globals.sass'
 
-export default function RootLayout({
+export default function AuthLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -8,7 +11,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        
+        <MainHeader/>
         {children}
           
       </body>

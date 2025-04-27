@@ -1,0 +1,1 @@
+export { PublicarQuejas } from './Quejas'

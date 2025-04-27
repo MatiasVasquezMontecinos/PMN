@@ -1,20 +1,21 @@
 import styles from './Hero.module.sass'
-
+import Link from 'next/link'
 
 export const Hero = () => {
-    
     return (
         <section className={styles.Hero}>
             <h1>Bienvenido a Turnlify</h1>
-            <h3>Es un aplicacion para horarios Laborales</h3>
+            <h3>Es una aplicación para horarios laborales</h3>
             
             <div>
-                <button>Incia Sesion</button>
+                <Link href="/login">
+                    <button>Inicia Sesión</button>
+                </Link>
                 <h4>o</h4>
-                <button>Registrate  </button>
+                <Link href="/register">
+                    <button>Regístrate</button>
+                </Link>
             </div>
         </section>
     );
 }
-
-  
