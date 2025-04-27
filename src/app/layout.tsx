@@ -1,3 +1,4 @@
+import { Footer } from 'app/components/shared/Footer';
 import 'app/sass/globals.sass'
 
 export default function RootLayout({
@@ -8,9 +9,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        
         {children}
-          
+        <Footer></Footer>
       </body>
     </html>
   );

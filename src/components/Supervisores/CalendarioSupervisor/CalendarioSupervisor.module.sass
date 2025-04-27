@@ -15,10 +15,22 @@
   display: flex
   align-items: center
   justify-content: center
-  gap: 0.5rem
+  gap: 1rem
   font-size: 2rem
   font-weight: bold
   text-transform: capitalize
+
+  button
+    padding: 0.5rem 1rem
+    background-color: #0070f3
+    color: white
+    border: none
+    border-radius: 0.5rem
+    cursor: pointer
+    font-size: 1rem
+
+    &:hover
+      background-color: #005dc1
 
   @media (max-width: 768px)
     font-size: 1.8rem
@@ -46,20 +58,40 @@
     font-size: 1rem
 
 .Calendario__day
-  width: 100%
-  height: 5rem
+  background-color: #f9f9f9
+  border: 1px solid #ddd
+  border-radius: 0.75rem
   display: flex
+  flex-direction: column
   align-items: center
   justify-content: center
-  border-radius: 0.75rem
+  padding: 0.5rem
   font-weight: 500
   font-size: 1.3rem
   color: #222
+  position: relative
+  gap: 0.5rem
 
   @media (max-width: 768px)
-    height: 4rem
+    height: auto
     font-size: 1.1rem
 
   @media (max-width: 600px)
-    height: 3.5rem
     font-size: 1rem
+
+.Calendario__marcarAsistenciaBtn
+  margin-top: 0.5rem
+  padding: 0.3rem 0.7rem
+  font-size: 0.8rem
+  background-color: #28a745
+  color: white
+  border: none
+  border-radius: 0.5rem
+  cursor: pointer
+  width: 100%
+  max-width: 120px
+  text-align: center
+  transition: background-color 0.3s ease
+
+  &:hover
+    background-color: #218838
