@@ -19,6 +19,14 @@ export const MainHeader = () => {
         }
     };
 
+    const handleLogout = () => {
+        // Limpia toda la información almacenada del usuario
+        localStorage.clear();
+
+        // Redirige al login
+        router.push('/login');
+    };
+
     const getButtonText = () => {
         if (pathname === '/homeEmpleado') return 'Quejas';
         if (pathname === '/quejas') return 'Atrás';
@@ -44,7 +52,7 @@ export const MainHeader = () => {
                     </div>
                 )}
                 <h2>Turnlify</h2>
-                <button onClick={() => router.push('/login')}>Cerrar sesión</button>
+                <button onClick={handleLogout}>Cerrar sesión</button>
             </nav>
         </header>
     );

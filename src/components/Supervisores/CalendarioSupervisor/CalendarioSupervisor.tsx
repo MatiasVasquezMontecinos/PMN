@@ -9,6 +9,8 @@ import styles from './CalendarioSupervisor.module.sass';
 
 export const CalendarioSupervisor = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
+  const [popupVisible, setPopupVisible] = useState(false);
+  const [attendees, setAttendees] = useState<string[]>([]); // Lista de personas que asistieron
   const router = useRouter();
 
   const startDate = startOfMonth(currentDate);
@@ -22,9 +24,21 @@ export const CalendarioSupervisor = () => {
     ...Array.from({ length: daysInMonth }, (_, i) => i + 1)
   ];
 
-  const handleVerLista = (day: number) => {
-    router.push(`/lista?dia=${day}`); // pasa el día como parámetro en la URL
-  };
+const handleVerLista = (day: number) => {
+  const users = JSON.parse(localStorage.getItem("users") || "[]");
+  const attendees: string[] = [];
+
+  users.forEach((user: any) => {
+    const key = `markedDays_${user.email}_${format(currentDate, "yyyy-MM")}`;
+    const markedDays = JSON.parse(localStorage.getItem(key) || "[]");
+    if (markedDays.includes(day)) {
+      attendees.push(`${user.name} ${user.surname}`);
+    }
+  });
+
+  setAttendees(attendees);
+  setPopupVisible(true);
+};
 
   return (
     <section className={styles.Calendario__box}>
@@ -63,6 +77,27 @@ export const CalendarioSupervisor = () => {
           </div>
         ))}
       </div>
+
+      {/* Popup de la lista de asistentes */}
+      {popupVisible && (
+        <div className={styles.popup}>
+          <div className={styles.popupContent}>
+            <h3>Asistentes del día</h3>
+            <ul>
+              {attendees.length > 0 ? (
+                attendees.map((attendee, index) => (
+                  <li key={index}>{attendee}</li>
+                ))
+              ) : (
+                <li>No hay asistentes registrados.</li>
+              )}
+            </ul>
+            <button className={styles.closeBtn}>
+              Cerrar
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
